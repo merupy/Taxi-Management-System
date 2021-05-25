@@ -1,0 +1,190 @@
+{% extends 'Taxi_Manager/base.html' %}
+
+{% block title %}Driver Registration{% endblock %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+</div>
+<!-- /.container-fluid -->
+<div class="container-fluid">
+    <div class="card mb-12">
+
+        <div class="card-header">
+            <h3>
+                <center>Driver Registration</center>
+            </h3>
+        </div>
+
+        <div class="card-body">
+            <form method="post" style="margin: 0 20px 0 20px;">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+
+                <div class="card" style="margin-top: 20px">
+                    <div class="card-header">
+                        <h5>
+                            <center>Personal Details</center>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                {{ form.first_name.errors }}
+                                <label>First Name:</label>
+                                {% render_field form.first_name class="form-control" placeholder=form.first_name.label %}
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                {{ form.last_name.errors }}
+                                <label>Last Name:</label>
+                                {% render_field form.last_name class="form-control" placeholder=form.last_name.label %}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{ form.gender.errors }}
+                                <label>{{form.gender.label}}:</label>
+                                {{ form.gender|add_class:'form-control' }}
+                            </div>
+                            <div class="col-md-6">
+                                <label>{{form.date_of_birth.label}}:</label>
+                                {{ form.date_of_birth|add_class:'form-control' }}
+                            </div>
+                            <!--<div class="col-md-6">
+                                <label>{{form.profile_image.label}}:</label>
+                                {% render_field form.profile_image class="form-control" placeholder=form.profile_image.label %}
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="margin-top: 20px">
+                    <div class="card-header">
+                        <h5>
+                            <center>Job Details</center>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                {{ form.salary.errors }}
+                                <label>Salary:</label>
+                                {% render_field form.salary class="form-control" placeholder=form.salary.label %}
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                {{ form.joined_date.errors }}
+                                <label>Joined:</label>
+                                {% render_field form.joined_date class="form-control" placeholder=form.joined_date.label %}
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label>Termination:</label>
+                                {% render_field form.termination_date class="form-control" placeholder=form.termination_date.label %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="input-group-prepend">
+                                    <label>Taxi No:</label>
+                                </div>
+                                {% render_field form.taxi class="form-control" placeholder="form.taxi.label" %}
+                            </div>
+                        </div>
+                    </div> 
+
+                <div class="card" style="margin-top: 20px">
+                    <div class="card-header">
+                        <h5>
+                            <center>Contact and Address Details</center>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                {{ form.contact_no.errors }}
+                                <label>{{form.contact_no.label}}:</label>
+                                {% render_field form.contact_no class="form-control" placeholder=form.contact_no.label %}
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                {{ form.email.errors }}
+                                <label>{{form.email.label}}:</label>
+                                {% render_field form.email class="form-control" placeholder=form.email.label %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-3">
+                                {{ form.country.errors }}
+                                <label>{{form.country.label}}:</label>
+                                {% render_field form.country class="form-control" placeholder=form.country.label %}
+                            </div>
+
+                            <div class="col-xs-6 col-sm-3">
+                                {{ form.state.errors }}
+                                <label>{{form.state.label}}:</label>
+                                {% render_field form.state class="form-control" placeholder=form.state.label %}
+                            </div>
+
+                            <div class="col-xs-6 col-sm-3">
+                                {{ form.district.errors }}
+                                <label>{{form.district.label}}:</label>
+                                {% render_field form.district class="form-control" placeholder=form.district.label %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-3">
+                                {{ form.city.errors }}
+                                <label>{{form.city.label}}:</label>
+                                {% render_field form.city class="form-control" placeholder=form.city.label %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="card" style="margin-top: 20px">
+            <div class="card-header">
+                <h5>
+                    <center>Account Details</center>
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <!--{{ user_form.username.errors }}-->
+                        <label>{{ user_form.username.label }}:</label>
+                        <!--{{ form.contact_no|add_class:'form-control' }}-->
+                        {% render_field user_form.username class="form-control" placeholder=form.username.label %}
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <!--{{ user_form.password.errors }}-->
+                        <label>{{ user_form.password1.label }}:</label>
+                        {{ user_form.password1|add_class:'form-control' }}
+                        <!--{% render_field user_form.password class="form-control" placeholder=form.password.label %}-->
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <!--{{ user_form.password.errors }}-->
+                        <label>{{ user_form.password2.label }}:</label>
+                        {{ user_form.password2|add_class:'form-control' }}
+                        <!--{% render_field user_form.password class="form-control" placeholder=form.password.label %}-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 20px">
+            <input class="btn btn-primary" type="submit" value="Register">
+            <a href="{% url 'Taxi_Manager:home' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+        </form>
+    </div>
+    </div>
+</div>
+<!-- End of Main Content -->
+{% endblock %}

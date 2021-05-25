@@ -1,0 +1,73 @@
+{% extends 'Taxi_Manager/base.html' %}
+
+{% block title %}Add Daily Income{% endblock %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+<!-- Begin Page Content -->
+<!-- /.container-fluid -->
+<div class="container-fluid">
+    <div class="card mb-12">
+
+        <div class="card-header">
+            <h3>
+                <center>Add Daily Income</center>
+            </h3>
+        </div>
+
+        <div class="card-body">
+            <form method="post" style="margin: 0 20px 0 20px;">
+                {% csrf_token %}
+                {{ form.non_field_errors }}             
+
+                <div class="card" style="margin-top: 20px">
+                    <div class="card-header"><h5><center>Income Details</center></h5></div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="input-group-prepend">
+                                    <label>Taxi No:</label>
+                                  </div>
+                                {% render_field form.taxi class="form-control" placeholder="" %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="input-group-prepend">
+                                    <label>Driver</label>
+                                  </div>
+                                {% render_field form.driver class="form-control" placeholder="" %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                {{ form.dialy_income.errors }}
+                                <label>Daily Income:</label>
+                                {% render_field form.daily_income class="form-control" placeholder=form.daily_income.label %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                {{ form.registration_date.errors }}
+                                <label>Date of Registration:</label>
+                                {% render_field form.registration_date class="form-control" placeholder=form.registration_date.label %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                {{ form.start_trip.errors }}
+                                <label>Start Trip(KM):</label>
+                                {% render_field form.start_trip class="form-control" placeholder=form.start_trip.label %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                {{ form.end_trip.errors }}
+                                <label>End Trip(KM):</label>
+                                {% render_field form.end_trip class="form-control" placeholder=form.end_trip.label %}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top: 20px">
+                    <input class="btn btn-primary" type="submit" value="Register">
+                    <a href="{% url 'Taxi_Manager:home' %}" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End of Main Content -->
+{% endblock %}

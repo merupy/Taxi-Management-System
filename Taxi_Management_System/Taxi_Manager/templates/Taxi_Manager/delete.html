@@ -1,0 +1,15 @@
+{% extends 'Taxi_Manager/base.html' %}
+
+{% block title %}Delete{% endblock %}
+
+{% block content %}
+    <div style="margin-top: 50px">
+        <h2>Deletion Confirmation</h2>
+
+        <form method="post">{% csrf_token %}
+            <p>Are you sure you want to delete "{{ object }}"?</p>
+            <input type="submit" value="Confirm">
+        </form>
+    </div>
+
+{% endblock %}

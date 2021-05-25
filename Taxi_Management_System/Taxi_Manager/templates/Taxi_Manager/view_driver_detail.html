@@ -1,0 +1,135 @@
+{% extends 'Taxi_Manager/base.html' %}
+
+{% block title %}Driver Detail{% endblock %}
+
+{% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800" style="text-align: center">Driver Information</h1>
+
+</div>
+<!-- /.container-fluid -->
+<div class="container-fluid">
+    <div class="card mb-12">
+        <div class="card-body">
+
+            <div class="card" style="margin-top: 20px">
+                <div class="card-header">
+                    <h5>
+                        <center>Personal Details</center>
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>First Name:</label>
+                            <input class="form-control" type="text" placeholder="{{ driver.first_name }}" readonly>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Last Name:</label>
+                            <input class="form-control" type="text" placeholder="{{ driver.last_name }}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Gender:</label>
+                            <input class="form-control" type="text" placeholder="{{ driver.gender}}" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Date of Birth:</label>
+                            <input class="form-control" type="text" placeholder="{{ driver.date_of_birth}}" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 20px">
+                <div class="card-header">
+                    <h5>
+                        <center>Job Details</center>
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>Salary:</label>
+                            <input class="form-control" type="text" placeholder="{{ driver.salary}}" readonly>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Joined:</label>
+                            <input class="form-control" type="text" placeholder="{{ driver.joined_date}}" readonly>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Termination:</label>
+                            <input class="form-control" type="text" placeholder="{{ driver.termination_date}}" readonly>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="input-group-prepend">
+                                <label>Taxi No:</label>
+                            </div>
+                            <input class="form-control" type="text" placeholder="{{ driver.taxi}}" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 20px">
+                    <div class="card-header">
+                        <h5>
+                            <center>Contact and Address Details</center>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label>Contact No::</label>
+                                <input class="form-control" type="text" placeholder="{{ driver.contact_no}}" readonly>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label>Email:</label>
+                                <input class="form-control" type="text" placeholder="{{ driver.email}}" readonly>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-3">
+                                <label>Country:</label>
+                                <input class="form-control" type="text" placeholder="{{ driver.country}}" readonly>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-3">
+                                <label>State:</label>
+                                <input class="form-control" type="text" placeholder="{{ driver.state}}" readonly>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-3">
+                                <label>District:</label>
+                                <input class="form-control" type="text" placeholder="{{ driver.district}}" readonly>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-3">
+                                <label>City:</label>
+                                <input class="form-control" type="text" placeholder="{{ driver.city}}" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 20px">
+                <a href="{% url 'Taxi_Manager:update-driver' driver.id %}" class="btn btn-primary">Update</a>
+                <a href="{% url 'Taxi_Manager:delete-driver' driver.id %}" class="btn btn-primary">Delete</a>
+                <a href="{% url 'Taxi_Manager:view-driver' %}" class="btn btn-secondary">Back</a>
+              </div>
+        </div>
+
+    </div>
+</div>
+<!-- End of Main Content -->
+{% endblock %}
